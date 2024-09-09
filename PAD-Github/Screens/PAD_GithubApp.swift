@@ -11,7 +11,7 @@ import SwiftUI
 struct PAD_GithubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GithubUserListScreenBuilder.setup()
         }
     }
 }
