@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GithubUser: Decodable {
+struct GithubUser {
     let Id: Int
     let login: String
     let avatar_url: String
@@ -20,6 +20,20 @@ struct GithubUser: Decodable {
     let company: [String]?
     let follower: UInt?
     let following: UInt?
+    
+    init(Id: Int, login: String, avatar_url: String, html_url: String, name: String?, blog: String?, email: String?, location: String?, company: [String]?, follower: UInt?, following: UInt?) {
+        self.Id = Id
+        self.login = login
+        self.avatar_url = avatar_url
+        self.html_url = html_url
+        self.name = name
+        self.blog = blog
+        self.email = email
+        self.location = location
+        self.company = company
+        self.follower = follower
+        self.following = following
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -110,6 +110,19 @@ struct GithubUserListScreenView : View, GithubUserListScreenViewprotocol {
     }
 }
 
-//#Preview {
-//    GithubUserListScreenView()
-//}
+#Preview {
+    let mockData = [MockUserEntity.user1,
+                    MockUserEntity.user2,
+                    MockUserEntity.user3,
+                    MockUserEntity.user4,
+                    MockUserEntity.user5,
+                    MockUserEntity.user6,
+                    MockUserEntity.user7,
+                    MockUserEntity.user8,
+                    MockUserEntity.user9,
+                    MockUserEntity.user10]
+    
+    let mockModel = MockGithubUserListScreenModel(userListPublisher: .success(mockData))
+    
+    return GithubUserListScreenView(viewmodel: GithubUserListScreenViewModel(githubUserListModel: mockModel))
+}

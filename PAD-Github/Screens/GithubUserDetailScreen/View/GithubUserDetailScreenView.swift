@@ -151,11 +151,9 @@ struct GithubUserDetailScreenView : View, GithubUserDetailScreenViewprotocol {
 }
 
 #Preview {
-    let user = UserEntity.init(Id: 7, login: "Thebeckz007", avatar_url: "https://avatars.githubusercontent.com/u/8088027?v=4", html_url: "https://github.com/thebeckz007", name: "Duy Phan", blog: "https://duyphanspace.wordpress.com/", email: "Thebeckz007@gmail.com", location: "Ho Chi Minh", company: ["Nami", "Fossil", "Misfit"], follower: 107, following: 17)
+    let mockData = MockUserEntity.user7
     
-    let mockModel = MockGithubUserDetailScreenModel(userDetailPublisher: .success(user))
+    let mockModel = MockGithubUserDetailScreenModel(userDetailPublisher: .success(mockData))
     
-    return GithubUserDetailScreenView(viewmodel: GithubUserDetailScreenViewModel(githubUserDetailModel: mockModel, user: user))
-    
-    
+    return GithubUserDetailScreenView(viewmodel: GithubUserDetailScreenViewModel(githubUserDetailModel: mockModel, user: mockData))
 }
