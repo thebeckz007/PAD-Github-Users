@@ -18,7 +18,7 @@ protocol GithubUserDetailScreenBuilderprotocol: BaseBuilderProtocol {
 /// class GithubUserDetailScreenBuilder
 class GithubUserDetailScreenBuilder: GithubUserDetailScreenBuilderprotocol {
     class func setup(user: UserEntity) -> GithubUserDetailScreenView {
-         let model = GithubUserDetailScreenModel(githubAPI: GithubAPI(baseURL: URL(string: "https://api.github.com")!, networkSession: URLSession.shared))
+         let model = GithubUserDetailScreenModel(githubAPI: World.shared.githubAPI)
          let viewmodel = GithubUserDetailScreenViewModel(githubUserDetailModel: model, user: user)
          let view = GithubUserDetailScreenView(viewmodel: viewmodel)
          

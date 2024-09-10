@@ -18,7 +18,7 @@ protocol GithubUserListScreenBuilderprotocol: BaseBuilderProtocol {
 /// class GithubUserListScreenBuilder
 class GithubUserListScreenBuilder: GithubUserListScreenBuilderprotocol {
      class func setup() -> GithubUserListScreenView {
-         let model = GithubUserListScreenModel(githubAPI: GithubAPI(baseURL: URL(string: "https://api.github.com")!, networkSession: URLSession.shared))
+         let model = GithubUserListScreenModel(githubAPI: World.shared.githubAPI)
          let viewmodel = GithubUserListScreenViewModel(githubUserListModel: model)
          let view = GithubUserListScreenView(viewmodel: viewmodel)
          

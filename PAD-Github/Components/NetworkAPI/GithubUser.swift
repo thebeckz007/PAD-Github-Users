@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GithubUser {
+struct GithubUser: Decodable {
     let Id: Int
     let login: String
     let avatar_url: String
