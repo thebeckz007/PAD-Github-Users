@@ -34,7 +34,6 @@ class GithubUserListScreenViewModel: ObservableObject, GithubUserListScreenViewM
     
     init(githubUserListModel: GithubUserListScreenModelprotocol) {
         self.githubUserListModel = githubUserListModel
-        self.refreshGithubUserList()
     }
     
     func refreshGithubUserList() {

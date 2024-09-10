@@ -26,36 +26,65 @@ final class GithubUserDetailScreenViewModelTest: XCTestCase {
     }
 
     func testLoadUsersSuccess() throws {
+        let userExpectation = XCTestExpectation()
         let outputData = MockUserEntity.user1
         
-        mockModel.userDetailPublisher = .success(outputData)
+        mockModel.userDetailPublisher = .success(inputData)
+        githubUserDetailViewModel.getGithubUserDetail()
         
         githubUserDetailViewModel.$user
+            .dropFirst()
             .sink { user in
                 XCTAssertEqual(user, outputData, "Wrong data")
+                userExpectation.fulfill()
             }
             .store(in: &subscribers)
+        
+        wait(for: [userExpectation], timeout: 1.0)
     }
     
     func testLoadUsersFailure() throws {
-        mockModel.userDetailPublisher = .failure(HTTPError.statusCode)
+        let errorMsgExpectation = XCTestExpectation()
+        let isShowErrorExpectation = XCTestExpectation()
         
-        githubUserDetailViewModel.$isShownError
-            .sink { isShowError in
-                XCTAssertTrue(true, "Should be an error")
+        mockModel.userDetailPublisher = .failure(HTTPError.statusCode)
+        githubUserDetailViewModel.getGithubUserDetail()
+        
+        githubUserDetailViewModel.$errMessage
+            .dropFirst()
+            .sink { err in
+                XCTAssertNotEqual(err, "", "Should be not empty")
+                errorMsgExpectation.fulfill()
             }
             .store(in: &subscribers)
+        
+        githubUserDetailViewModel.$isShownError
+            .removeDuplicates()
+            .dropFirst()
+            .sink { isShowError in
+                XCTAssertTrue(isShowError, "Should be an error")
+                isShowErrorExpectation.fulfill()
+            }
+            .store(in: &subscribers)
+        
+        wait(for: [errorMsgExpectation, isShowErrorExpectation], timeout: 1.0)
     }
     
     func testLoadUsersWrongData() throws {
+        let userExpectation = XCTestExpectation()
         let outputData = MockUserEntity.user2
         
-        mockModel.userDetailPublisher = .success(outputData)
+        mockModel.userDetailPublisher = .success(inputData)
+        githubUserDetailViewModel.getGithubUserDetail()
         
         githubUserDetailViewModel.$user
+            .dropFirst()
             .sink { user in
                 XCTAssertNotEqual(user, outputData, "Wrong data")
+                userExpectation.fulfill()
             }
             .store(in: &subscribers)
+        
+        wait(for: [userExpectation], timeout: 1.0)
     }
 }

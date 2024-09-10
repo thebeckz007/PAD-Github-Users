@@ -54,6 +54,8 @@
 		70F3A3F92C90762E0028EB1F /* GithubUserListScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D266C2C8EA55800BB6E37 /* GithubUserListScreenBuilder.swift */; };
 		70F3A3FA2C90762E0028EB1F /* GithubUserDetailScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D26912C8EEA6D00BB6E37 /* GithubUserDetailScreenBuilder.swift */; };
 		70F3A3FB2C90763C0028EB1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701D26342C8EA38C00BB6E37 /* Assets.xcassets */; };
+		70F3A3FF2C90A1410028EB1F /* GithubUserListScreenModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3A3FE2C90A1410028EB1F /* GithubUserListScreenModelTest.swift */; };
+		70F3A4012C90A14E0028EB1F /* GithubUserListScreenViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3A4002C90A14E0028EB1F /* GithubUserListScreenViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		70F3A3EB2C906B970028EB1F /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		70F3A3EE2C906FAA0028EB1F /* GithubUserDetailScreenModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetailScreenModelTest.swift; sourceTree = "<group>"; };
 		70F3A3F02C906FDD0028EB1F /* GithubUserDetailScreenViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetailScreenViewModelTest.swift; sourceTree = "<group>"; };
+		70F3A3FE2C90A1410028EB1F /* GithubUserListScreenModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListScreenModelTest.swift; sourceTree = "<group>"; };
+		70F3A4002C90A14E0028EB1F /* GithubUserListScreenViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListScreenViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,10 +405,28 @@
 		70F3A3ED2C906F560028EB1F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				70F3A3FD2C90A1100028EB1F /* GithubUserListScreen */,
+				70F3A3FC2C90A0FF0028EB1F /* GithubUserDetailScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		70F3A3FC2C90A0FF0028EB1F /* GithubUserDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
 				70F3A3EE2C906FAA0028EB1F /* GithubUserDetailScreenModelTest.swift */,
 				70F3A3F02C906FDD0028EB1F /* GithubUserDetailScreenViewModelTest.swift */,
 			);
-			path = Screens;
+			path = GithubUserDetailScreen;
+			sourceTree = "<group>";
+		};
+		70F3A3FD2C90A1100028EB1F /* GithubUserListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				70F3A3FE2C90A1410028EB1F /* GithubUserListScreenModelTest.swift */,
+				70F3A4002C90A14E0028EB1F /* GithubUserListScreenViewModelTest.swift */,
+			);
+			path = GithubUserListScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70F3A3EF2C906FAA0028EB1F /* GithubUserDetailScreenModelTest.swift in Sources */,
+				70F3A3FF2C90A1410028EB1F /* GithubUserListScreenModelTest.swift in Sources */,
 				70F3A3F22C9071140028EB1F /* GithubUserDetailScreenViewModel.swift in Sources */,
 				701D266E2C8EA55800BB6E37 /* GithubUserListScreenViewModel.swift in Sources */,
 				70F3A3F82C9076210028EB1F /* SwiftUI+LoadingView.swift in Sources */,
@@ -572,6 +595,7 @@
 				701D26772C8EA59C00BB6E37 /* MVVMBaseProtocol.swift in Sources */,
 				701D267B2C8EA9D200BB6E37 /* GithubAPI.swift in Sources */,
 				70F3A3E02C9066B60028EB1F /* MockGithubUserListScreenModel.swift in Sources */,
+				70F3A4012C90A14E0028EB1F /* GithubUserListScreenViewModelTest.swift in Sources */,
 				70F3A3E82C906A060028EB1F /* MockGithubAPI.swift in Sources */,
 				70F3A3F12C906FDD0028EB1F /* GithubUserDetailScreenViewModelTest.swift in Sources */,
 				701D26702C8EA55800BB6E37 /* GithubUserListScreenModel.swift in Sources */,

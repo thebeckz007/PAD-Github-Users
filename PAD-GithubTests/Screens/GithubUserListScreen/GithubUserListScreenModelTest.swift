@@ -1,5 +1,5 @@
 //
-//  GithubUserDetailScreenTest.swift
+//  GithubUserListScreenModel.swift
 //  PAD-GithubTests
 //
 //  Created by Phan Anh Duy on 10/09/2024.
@@ -8,15 +8,15 @@
 import XCTest
 import Combine
 
-final class GithubUserDetailScreenModelTest: XCTestCase {
-    public var githubUserDetailModel: GithubUserDetailScreenModel!
+final class GithubUserListScreenModelTest: XCTestCase {
+    public var githubUserListModel: GithubUserListScreenModel!
     public var mockGithubAPI: MockGithubAPI!
     public var subscribers = Set<AnyCancellable>()
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         mockGithubAPI = MockGithubAPI()
-        githubUserDetailModel = GithubUserDetailScreenModel(githubAPI: mockGithubAPI)
+        githubUserListModel = GithubUserListScreenModel(githubAPI: mockGithubAPI)
     }
 
     override func tearDownWithError() throws {
@@ -25,12 +25,23 @@ final class GithubUserDetailScreenModelTest: XCTestCase {
     }
 
     func testLoadGitHubUsersSuccess() throws {
-        let inputData = MockGithubUser.user1
-        let outputData = MockUserEntity.user1
+        let inputData = [
+            MockGithubUser.user1,
+            MockGithubUser.user2,
+            MockGithubUser.user3,
+            MockGithubUser.user4,
+            MockGithubUser.user5]
         
-        mockGithubAPI.userDetailPublisher = .success(inputData)
+        let outputData = [
+            MockUserEntity.user1,
+            MockUserEntity.user2,
+            MockUserEntity.user3,
+            MockUserEntity.user4,
+            MockUserEntity.user5]
         
-        githubUserDetailModel.getGithubUserDetail(userID: "\(inputData.Id)")
+        mockGithubAPI.userListPublisher = .success(inputData)
+        
+        githubUserListModel.getGithubUserList(since: 0, numberOfPage: UInt(outputData.count))
             .sink { completion in
                 if case .failure(_) = completion {
                     XCTFail("Something went wrong")
@@ -39,16 +50,12 @@ final class GithubUserDetailScreenModelTest: XCTestCase {
                 XCTAssertEqual(user, outputData, "Wrong data")
             }
             .store(in: &subscribers)
-        
     }
     
     func testLoadGitHubUsersFailure() throws {
-        let inputData = MockGithubUser.user1
-        let outputData = MockUserEntity.user1
+        mockGithubAPI.userListPublisher = .failure(HTTPError.statusCode)
         
-        mockGithubAPI.userDetailPublisher = .failure(HTTPError.statusCode)
-        
-        githubUserDetailModel.getGithubUserDetail(userID: "\(inputData.Id)")
+        githubUserListModel.getGithubUserList(since: 0, numberOfPage: 10)
             .sink { completion in
                 if case .failure(_) = completion {
                     
@@ -62,12 +69,22 @@ final class GithubUserDetailScreenModelTest: XCTestCase {
     }
     
     func testLoadGitHubUsersWrongData() throws {
-        let inputData = MockGithubUser.user1
-        let outputData = MockUserEntity.user2
+        let inputData = [
+            MockGithubUser.user1,
+            MockGithubUser.user2,
+            MockGithubUser.user3,
+            MockGithubUser.user4,
+            MockGithubUser.user5]
         
-        mockGithubAPI.userDetailPublisher = .success(inputData)
+        let outputData = [
+            MockUserEntity.user1,
+            MockUserEntity.user2,
+            MockUserEntity.user3,
+            MockUserEntity.user4]
         
-        githubUserDetailModel.getGithubUserDetail(userID: "\(inputData.Id)")
+        mockGithubAPI.userListPublisher = .success(inputData)
+        
+        githubUserListModel.getGithubUserList(since: 0, numberOfPage: UInt(outputData.count))
             .sink { completion in
                 if case .failure(_) = completion {
                     XCTFail("Something went wrong")

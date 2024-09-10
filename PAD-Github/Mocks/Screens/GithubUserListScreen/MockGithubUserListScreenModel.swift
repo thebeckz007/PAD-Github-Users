@@ -7,7 +7,7 @@
 
 import Combine
 
-struct MockGithubUserListScreenModel: GithubUserListScreenModelprotocol {
+class MockGithubUserListScreenModel: GithubUserListScreenModelprotocol {
     var userListPublisher: Result<[UserEntity], Error>!
     
     func getGithubUserList(since: UInt, numberOfPage: UInt) -> AnyPublisher<[UserEntity], Error> {
