@@ -36,5 +36,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C590A1D1-A32F-4C22-8844-E313F500E318"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PAD-GithubTests/Screens/GithubUserDetailScreenViewModelTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "testLoadUsersFailure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C590A1D1-A32F-4C22-8844-E313F500E318 - 577d523fee2cd10c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in PAD_GithubTests.GithubUserDetailScreenViewModelTest.testLoadGitHubUsersFailure() throws -&gt; ()"
+                  moduleName = "PAD-GithubTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/PAD-Github/PAD-GithubTests/Screens/GithubUserDetailScreenViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "C590A1D1-A32F-4C22-8844-E313F500E318 - 6479254d07902237"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Bool) -&gt; () in PAD_GithubTests.GithubUserDetailScreenViewModelTest.testLoadGitHubUsersFailure() throws -&gt; ()"
+                  moduleName = "PAD-GithubTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ba3k/Documents/Work/Thebeckz007/PAD-Github/PAD-GithubTests/Screens/GithubUserDetailScreenViewModelTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

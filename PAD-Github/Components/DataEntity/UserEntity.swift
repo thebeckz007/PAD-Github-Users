@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserEntity {
+struct UserEntity: Equatable {
     let Id: Int
     let login: String
     let avatar_url: String

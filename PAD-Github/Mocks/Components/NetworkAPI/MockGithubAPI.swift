@@ -7,7 +7,7 @@
 
 import Combine
 
-struct MockGithubAPI: GithubAPIPProtocol {
+class MockGithubAPI: GithubAPIPProtocol {
     var userListPublisher: Result<[GithubUser], Error>!
     var userDetailPublisher: Result<GithubUser, Error>!
     

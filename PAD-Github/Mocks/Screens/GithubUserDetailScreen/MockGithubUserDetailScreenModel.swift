@@ -7,7 +7,7 @@
 
 import Combine
 
-struct MockGithubUserDetailScreenModel: GithubUserDetailScreenModelprotocol {
+class MockGithubUserDetailScreenModel: GithubUserDetailScreenModelprotocol {
     var userDetailPublisher: Result<UserEntity, Error>!
     
     func getGithubUserDetail(userID: String) -> AnyPublisher<UserEntity, Error> {

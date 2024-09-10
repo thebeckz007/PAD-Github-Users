@@ -153,7 +153,8 @@ struct GithubUserDetailScreenView : View, GithubUserDetailScreenViewprotocol {
 #Preview {
     let mockData = MockUserEntity.user7
     
-    let mockModel = MockGithubUserDetailScreenModel(userDetailPublisher: .success(mockData))
+    let mockModel = MockGithubUserDetailScreenModel()
+    mockModel.userDetailPublisher = .success(mockData)
     
     return GithubUserDetailScreenView(viewmodel: GithubUserDetailScreenViewModel(githubUserDetailModel: mockModel, user: mockData))
 }
