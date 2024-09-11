@@ -118,6 +118,16 @@ final class GithubUserListScreenViewModelTest: XCTestCase {
             MockUserEntity.user7,
             MockUserEntity.user8,
             MockUserEntity.user9,
+            MockUserEntity.user10,
+            MockUserEntity.user1,
+            MockUserEntity.user2,
+            MockUserEntity.user3,
+            MockUserEntity.user4,
+            MockUserEntity.user5,
+            MockUserEntity.user6,
+            MockUserEntity.user7,
+            MockUserEntity.user8,
+            MockUserEntity.user9,
             MockUserEntity.user10]
         
         mockModel.userListPublisher = .success(inputData)

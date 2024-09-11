@@ -28,7 +28,7 @@ class GithubUserListScreenViewModel: ObservableObject, GithubUserListScreenViewM
     @Published var enableLoadMore: Bool = false
     @Published var isShownError: Bool = false
     
-    private let numberOfPage: UInt = 10
+    private let numberOfPage: UInt = 20
     private var sinceUserID: Int = 0
     private var subscriptions = Set<AnyCancellable>()
     
