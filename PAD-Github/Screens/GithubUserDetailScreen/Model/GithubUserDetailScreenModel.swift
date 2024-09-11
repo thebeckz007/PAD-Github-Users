@@ -31,7 +31,7 @@ struct GithubUserDetailScreenModel: GithubUserDetailScreenModelprotocol {
     
     func getGithubUserDetail(userID: String) -> AnyPublisher<UserEntity, Error> {
         githubAPI.getGithubUserDetail(userID: userID)
-            .map{ UserEntity(githubUserAPI: $0) }
+            .map{ UserEntity(githubUserAPI: $0) } // transform GithubUser into UserEntity
             .eraseToAnyPublisher()
     }
 }

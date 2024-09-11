@@ -38,7 +38,10 @@ class GithubUserDetailScreenViewModel: ObservableObject, GithubUserDetailScreenV
     }
     
     func getGithubUserDetail() {
+        // isLoading is true to show loading view
         isLoading = true
+        
+        // reset/ hide error popup if appeared before
         isShownError = false
         
         githubUserDetailModel.getGithubUserDetail(userID: user.login)
@@ -46,12 +49,13 @@ class GithubUserDetailScreenViewModel: ObservableObject, GithubUserDetailScreenV
             .sink { [weak self] completion in
                 guard let self else { return }
                 
+                // Check and throw error as popup when has an error
                 if case .failure(_) = completion {
-                    // error
                     self.errMessage = "Something went wrong!!!"
                     self.isShownError = true
                 }
                 
+                // stop/ hide loading view
                 isLoading = false
             } receiveValue: { [weak self] user in
                 guard let self else { return }
