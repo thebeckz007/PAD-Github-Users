@@ -14,6 +14,7 @@ This project is the showcase of MVVM architecture, following SOLID principles, S
 - MVVM architecture: develop application
 - XCTest: to write UnitTest
 - Follow SOLID principles
+- Github restful API integration
 
 ## Environment
 - XCode 15.0 ++
