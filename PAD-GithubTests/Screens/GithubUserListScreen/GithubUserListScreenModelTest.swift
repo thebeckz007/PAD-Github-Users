@@ -8,6 +8,9 @@
 import XCTest
 import Combine
 
+// MARK: class GithubUserListScreenModelTest
+/// class GithubUserListScreenModelTest
+/// There are test cases of GithubUserListScreenModel
 final class GithubUserListScreenModelTest: XCTestCase {
     public var githubUserListModel: GithubUserListScreenModel!
     public var mockGithubAPI: MockGithubAPI!
@@ -24,6 +27,11 @@ final class GithubUserListScreenModelTest: XCTestCase {
         subscribers.removeAll()
     }
 
+    /// testLoadGitHubUsersSuccess
+    /// Test case: Fetching github user list was success
+    /// 1. Simulate response of get github user list function was success with inputData (user1,user2,user3,user4,user5).
+    /// 2. Perform fetching github user list API.
+    /// 3. Check response of this request above. It should be equal outputData (user1,user2,user3,user4,user5) as expected.
     func testLoadGitHubUsersSuccess() throws {
         let inputData = [
             MockGithubUser.user1,
@@ -52,6 +60,11 @@ final class GithubUserListScreenModelTest: XCTestCase {
             .store(in: &subscribers)
     }
     
+    /// testLoadGitHubUsersFailure
+    /// Test case: Fetching github user list was failure
+    /// 1. Simulate response of get github user list function was failure.
+    /// 2. Perform fetching github user list API.
+    /// 3. Check response of this request above. It should be get an error.
     func testLoadGitHubUsersFailure() throws {
         mockGithubAPI.userListPublisher = .failure(HTTPError.statusCode)
         
@@ -68,6 +81,11 @@ final class GithubUserListScreenModelTest: XCTestCase {
             .store(in: &subscribers)
     }
     
+    /// testLoadGitHubUsersWrongData
+    /// Test case: Fetching github user list was reviced unexpected data
+    /// 1. Simulate response of get github user list function was success with inputData (user1,user2,user3,user4,user5).
+    /// 2. Perform fetching github user list API.
+    /// 3. Check response of this request above. It should be not equal outputData (user1,user2,user3,user4) as expected.
     func testLoadGitHubUsersWrongData() throws {
         let inputData = [
             MockGithubUser.user1,
@@ -93,6 +111,5 @@ final class GithubUserListScreenModelTest: XCTestCase {
                 XCTAssertNotEqual(user, outputData, "Wrong data")
             }
             .store(in: &subscribers)
-        
     }
 }

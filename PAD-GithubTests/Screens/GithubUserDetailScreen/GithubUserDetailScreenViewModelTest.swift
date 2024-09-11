@@ -8,6 +8,9 @@
 import XCTest
 import Combine
 
+// MARK: class GithubUserDetailScreenViewModelTest
+/// class GithubUserDetailScreenViewModelTest
+/// There are test cases of GithubUserDetailScreenViewModel
 final class GithubUserDetailScreenViewModelTest: XCTestCase {
     public var githubUserDetailViewModel: GithubUserDetailScreenViewModel!
     public var mockModel: MockGithubUserDetailScreenModel!
@@ -25,6 +28,11 @@ final class GithubUserDetailScreenViewModelTest: XCTestCase {
         subscribers.removeAll()
     }
 
+    /// testLoadUsersSuccess
+    /// Test case: Fetching user detail was success
+    /// 1. Simulate response of get github user detail function was success with inputData(user1).
+    /// 2. Perform fetching github user detail API.
+    /// 3. Check response of this request above. It should be equal outputData(user1) as expected.
     func testLoadUsersSuccess() throws {
         let userExpectation = XCTestExpectation()
         let outputData = MockUserEntity.user1
@@ -43,6 +51,13 @@ final class GithubUserDetailScreenViewModelTest: XCTestCase {
         wait(for: [userExpectation], timeout: 1.0)
     }
     
+    /// testLoadUsersFailure
+    /// Test case: Fetching user detail was failure
+    /// 1. Simulate response of get github user detail function was failure.
+    /// 2. Perform fetching github user detail API.
+    /// 3. Check response of this request above. It should be get an error.
+    /// 3.1 errMessage should be not empty
+    /// 3.2 isShowError should true.
     func testLoadUsersFailure() throws {
         let errorMsgExpectation = XCTestExpectation()
         let isShowErrorExpectation = XCTestExpectation()
@@ -70,6 +85,11 @@ final class GithubUserDetailScreenViewModelTest: XCTestCase {
         wait(for: [errorMsgExpectation, isShowErrorExpectation], timeout: 1.0)
     }
     
+    /// testLoadUsersWrongData
+    /// Test case: Fetching user detail was reviced unexpected data
+    /// 1. Simulate response of get github user detail function was success with inputData (user1).
+    /// 2. Perform fetching github user detail API.
+    /// 3. Check response of this request above. It should be not equal outputData (user2) as expected.
     func testLoadUsersWrongData() throws {
         let userExpectation = XCTestExpectation()
         let outputData = MockUserEntity.user2

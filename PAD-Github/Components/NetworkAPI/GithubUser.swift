@@ -7,20 +7,43 @@
 
 import Foundation
 
+// MARK: struct GithubUser
+// struct GithubUser
 struct GithubUser: Decodable {
+    /// Id of GithubUser as Int
     let Id: Int
+    
+    /// Login name of GithubUser as String
     let login: String
+    
+    /// Avater url of GithubUser as String
     let avatar_url: String
+    
+    /// Html url of GithubUser as String
     let html_url: String
     
+    /// Full name of GithubUser as String
     let name: String?
+    
+    /// Blog page of GithubUser as String
     let blog: String?
+    
+    /// Email of GithubUser as String
     let email: String?
+    
+    /// Location of GithubUser as String
     let location: String?
+    
+    /// Company list of GithubUser as String array
     let company: [String]?
+    
+    /// Number of follower as UInt
     let follower: UInt?
+    
+    /// Number of following as UInt
     let following: UInt?
     
+    /// Initialize function
     init(Id: Int, login: String, avatar_url: String, html_url: String, name: String?, blog: String?, email: String?, location: String?, company: [String]?, follower: UInt?, following: UInt?) {
         self.Id = Id
         self.login = login
@@ -35,6 +58,7 @@ struct GithubUser: Decodable {
         self.following = following
     }
     
+    /// Initialize function from decoder
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.Id = try container.decodeIfPresent(Int.self, forKey: .Id) ?? 0
@@ -52,7 +76,7 @@ struct GithubUser: Decodable {
     }
 
     // MARK: Internal
-
+    /// enum Codingkeys
     enum CodingKeys: String, CodingKey {
         case Id = "id"
         case login = "login"

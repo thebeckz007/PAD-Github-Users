@@ -114,6 +114,7 @@ struct GithubUserDetailScreenView : View, GithubUserDetailScreenViewprotocol {
         .navigationTitle("User Details")
     }
     
+    /// Contruct userListCell view
     @ViewBuilder
     private func userdetailCell(user: UserEntity) -> some View {
         HStack(alignment: .top) {

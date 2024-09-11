@@ -12,14 +12,25 @@ import Combine
 // MARK: Protocol GithubUserListScreenViewModelprotocol
 /// protocol GithubUserListScreenViewModelprotocol
 protocol GithubUserListScreenViewModelprotocol: BaseViewModelProtocol {
+    /// refreshGithubUserList function
+    /// Refresh user list
     func refreshGithubUserList()
+    
+    /// loadmoreGithubUserList function
+    /// Load more users
     func loadmoreGithubUserList()
+    
+    /// gotoGithubUserDetail function
+    /// Navigate to User Detail screen
+    /// - Parameter user: user as UserEntity
+    /// - Returns: a view as GithubUserDetailScreenView
     func gotoGithubUserDetail(_ user: UserEntity) -> GithubUserDetailScreenView
 }
 
 // MARK: class GithubUserListScreenViewModel
 /// class GithubUserListScreenViewModel
 class GithubUserListScreenViewModel: ObservableObject, GithubUserListScreenViewModelprotocol {
+    /// githubUserListModel as GithubUserListScreenModelprotocol
     private let githubUserListModel: GithubUserListScreenModelprotocol
     
     @Published var userList = [UserEntity]()
@@ -28,8 +39,13 @@ class GithubUserListScreenViewModel: ObservableObject, GithubUserListScreenViewM
     @Published var enableLoadMore: Bool = false
     @Published var isShownError: Bool = false
     
+    /// numberOfPage as Uint constant
     private let numberOfPage: UInt = 20
+    
+    /// sinceUserID as Int. It likes Id of the last user of user list
     private var sinceUserID: Int = 0
+    
+    /// subscriptions to store  publisher
     private var subscriptions = Set<AnyCancellable>()
     
     init(githubUserListModel: GithubUserListScreenModelprotocol) {

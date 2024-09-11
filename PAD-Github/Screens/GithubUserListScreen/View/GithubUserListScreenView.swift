@@ -75,6 +75,7 @@ struct GithubUserListScreenView : View, GithubUserListScreenViewprotocol {
         })
     }
     
+    /// Contruct userListCell view
     @ViewBuilder
     private func userListCell(user: UserEntity) -> some View {
         NavigationLink(destination: viewmodel.gotoGithubUserDetail(user)) {

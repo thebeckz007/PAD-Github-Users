@@ -7,6 +7,9 @@
 
 import Foundation
 
+// MARK: struct MockUserEntity
+/// struct MockUserEntity
+/// Generate UserEntity data as mocked data
 public struct MockUserEntity {
     static let user1 = UserEntity(Id: 1, login: "Thebeckz001", avatar_url: "https://avatars.githubusercontent.com/u/8088027?v=4", html_url: "https://github.com/thebeckz007", name: "Duy Phan - 1", blog: "https://duyphanspace.wordpress.com/", email: "Thebeckz001@gmail.com", location: "Ho Chi Minh", company: ["Nami", "Fossil", "Misfit"], follower: 107, following: 17)
     static let user2 = UserEntity(Id: 2, login: "Thebeckz002", avatar_url: "https://avatars.githubusercontent.com/u/8088027?v=4", html_url: "https://github.com/thebeckz007", name: "Duy Phan - 2", blog: "https://duyphanspace.wordpress.com/", email: "Thebeckz002@gmail.com", location: "Ho Chi Minh", company: ["Nami", "Fossil", "Misfit"], follower: 1070, following: 171)

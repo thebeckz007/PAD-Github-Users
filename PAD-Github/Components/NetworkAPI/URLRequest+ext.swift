@@ -7,7 +7,16 @@
 
 import Foundation
 
+/// Extension of URLRequest
+/// Support to initialize URLRequest
 public extension URLRequest {
+    /// Initialize function
+    /// - parameter method: method name of request as String. e.g: GET, POST, etc.
+    /// - parameter baseURL: domain server of request as URL. e.g: https://api.github.com
+    /// - parameter path: path of request as String
+    /// - parameter query: parameter list of request as dictionary [parameter:  value]
+    /// - parameter header: header of request as dictionary [key: value]
+    /// - parameter body: body of request as data binary
     init( method: String = "GET", baseURL: URL, path: String, query: [String: String] = [:], headers: [String: String] = [:], body: Data? = nil)
     {
         self.init(

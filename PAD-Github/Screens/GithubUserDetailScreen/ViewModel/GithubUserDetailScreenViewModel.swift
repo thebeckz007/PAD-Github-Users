@@ -12,21 +12,26 @@ import Combine
 // MARK: Protocol GithubUserDetailScreenViewModelprotocol
 /// protocol GithubUserDetailScreenViewModelprotocol
 protocol GithubUserDetailScreenViewModelprotocol: BaseViewModelProtocol {
+    /// getGithubUserDetail function
+    /// Perform fetching user information
     func getGithubUserDetail()
-    func gotoBack()
 }
 
 // MARK: class GithubUserDetailScreenViewModel
 /// class GithubUserDetailScreenViewModel
 class GithubUserDetailScreenViewModel: ObservableObject, GithubUserDetailScreenViewModelprotocol {
+    /// githubUserDetailModel as GithubUserDetailScreenModelprotocol
     private let githubUserDetailModel: GithubUserDetailScreenModelprotocol
-    var subscriptions = Set<AnyCancellable>()
+    
+    /// subscriptions to store  publisher
+    private var subscriptions = Set<AnyCancellable>()
     
     @Published var user: UserEntity
     @Published var errMessage: String = ""
     @Published var isShownError: Bool = false
     @Published var isLoading: Bool = false
     
+    /// Initialize function
     init(githubUserDetailModel: GithubUserDetailScreenModelprotocol, user: UserEntity) {
         self.githubUserDetailModel = githubUserDetailModel
         self.user = user
@@ -54,9 +59,5 @@ class GithubUserDetailScreenViewModel: ObservableObject, GithubUserDetailScreenV
                 self.user = user
             }
             .store(in: &subscriptions)
-    }
-    
-    func gotoBack() {
-        
     }
 }

@@ -16,7 +16,10 @@ protocol GithubUserDetailScreenBuilderprotocol: BaseBuilderProtocol {
 
 // MARK: class GithubUserDetailScreenBuilder
 /// class GithubUserDetailScreenBuilder
+/// We use GithubUserListScreenBuilder to setup GithubUserDetailScreen
 class GithubUserDetailScreenBuilder: GithubUserDetailScreenBuilderprotocol {
+    /// setup function
+    /// - Returns: instance of GithubUserDetailScreenView
     class func setup(user: UserEntity) -> GithubUserDetailScreenView {
          let model = GithubUserDetailScreenModel(githubAPI: World.shared.githubAPI)
          let viewmodel = GithubUserDetailScreenViewModel(githubUserDetailModel: model, user: user)

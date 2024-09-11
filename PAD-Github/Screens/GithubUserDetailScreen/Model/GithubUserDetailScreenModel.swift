@@ -12,14 +12,19 @@ import Combine
 // MARK: Protocol GithubUserDetailScreenModelprotocol
 /// protocol GithubUserDetailScreenModelprotocol
 protocol GithubUserDetailScreenModelprotocol: BaseModelProtocol {
+    /// getGithubUserDetail function
+    /// - Parameter userID: The id of Github user for querying
+    /// - Returns: Publisher<GithubUser, Error>
     func getGithubUserDetail(userID: String) -> AnyPublisher<UserEntity, Error>
 }
 
 // MARK: struct GithubUserDetailScreenModel
 /// struct GithubUserDetailScreenModel
 struct GithubUserDetailScreenModel: GithubUserDetailScreenModelprotocol {
-    let githubAPI: GithubUserDetailAPIPProtocol
+    /// githubAPI as GithubUserDetailAPIPProtocol
+    private let githubAPI: GithubUserDetailAPIPProtocol
     
+    /// Initialize function
     init(githubAPI: GithubUserDetailAPIPProtocol) {
         self.githubAPI = githubAPI
     }

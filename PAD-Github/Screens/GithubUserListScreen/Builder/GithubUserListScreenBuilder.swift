@@ -16,7 +16,10 @@ protocol GithubUserListScreenBuilderprotocol: BaseBuilderProtocol {
 
 // MARK: class GithubUserListScreenBuilder
 /// class GithubUserListScreenBuilder
+/// We use GithubUserListScreenBuilder to setup GithubUserListScreen
 class GithubUserListScreenBuilder: GithubUserListScreenBuilderprotocol {
+    /// setup function
+    /// - Returns: instance of GithubUserListScreenView
      class func setup() -> GithubUserListScreenView {
          let model = GithubUserListScreenModel(githubAPI: World.shared.githubAPI)
          let viewmodel = GithubUserListScreenViewModel(githubUserListModel: model)

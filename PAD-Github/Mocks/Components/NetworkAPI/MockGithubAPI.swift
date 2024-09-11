@@ -7,6 +7,9 @@
 
 import Combine
 
+// MARK: class MockGithubAPI
+/// class MockGithubAPI
+/// A mocked GithubAPIPProtocol
 class MockGithubAPI: GithubAPIPProtocol {
     var userListPublisher: Result<[GithubUser], Error>!
     var userDetailPublisher: Result<GithubUser, Error>!

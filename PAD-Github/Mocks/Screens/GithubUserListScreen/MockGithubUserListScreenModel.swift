@@ -7,6 +7,9 @@
 
 import Combine
 
+// MARK: class MockGithubUserListScreenModel
+/// class MockGithubUserListScreenModel
+/// A mocked GithubUserListScreenModelprotocol
 class MockGithubUserListScreenModel: GithubUserListScreenModelprotocol {
     var userListPublisher: Result<[UserEntity], Error>!
     
